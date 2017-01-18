@@ -1,0 +1,22 @@
+%br
+#recipes.transitions-enabled
+  -if @recipe.length!=nil
+  
+    - @recipe.reverse.each do |recipe|
+      .box.panel.panel-default.col-md-3.col-xs-5
+        .image_wrapper
+          =link_to recipe do
+            =image_tag recipe.image.url
+          .like{style:"background-color:white;color:#f44336;position:absolute;padding:3px;border-radius:6%;top:0;left:0;"}
+            %span.glyphicon.glyphicon-heart
+              =recipe.get_upvotes.size
+        .panel-body
+          %h2= link_to recipe.title,recipe
+          %p.user
+            Sumbitted by
+            =recipe.user.email
+  -else
+    %p
+      No results found regarding this :|
+    %p
+      Add New Recipes and Help others :D

@@ -1,0 +1,205 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "materialize";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ @mixin box-shadow {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+ body {
+  background-color: #cfd8dc;
+ }
+
+ h1, h2, h3, h4, h5, h6 {
+ 	font-weight: 100;
+ }
+ #recipes {
+   margin: 0 ;
+   width: 100%;
+   .box {
+    max-width: 299px;
+    padding: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+ 	  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+ 	  border-radius: 0 0 7% 7%;
+ 	  text-align: center;
+    .image_wrapper {
+		  max-width: 100%;
+		  overflow: hidden;
+	  }
+ 	  img {
+ 	    width: 100%;
+ 	  	height: auto;
+      -webkit-transition: all .3s ease-out;
+	    -moz-transition: all .3s ease-out;
+	    -o-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+      &:hover {
+			transform: scale(1.075);
+		}
+ 	  }
+ 	  h2 {
+ 	  	font-size: 20px;
+ 	  	margin: 0;
+ 	  	a {
+ 				color: teal;
+ 	  	}
+ 	  }
+    .panel-body{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .user {
+ 	  	font-size: 12px;
+ 	  	border-top: 1px solid #EAEAEA;
+ 			padding: 15px;
+ 			margin: 0;
+ 	  }
+ 	}
+ }
+ #recipe_info, #ingredients, #directions ,#cmdata{
+	background: white;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+	min-height: 270px;
+	border-radius: 5px;
+	padding: 2em 8%;
+}
+
+.recipe_image {
+	max-width: 100%;
+	//border-radius: 5px;
+	@include box-shadow;
+}
+
+#recipe_info {
+	h1 {
+		font-size: 36px;
+		font-weight: normal;
+		color: #DB6161;
+	}
+	.description {
+		color: #8A8A8A;
+		font-size: 20px;
+	}
+}
+ #ingredients, #directions {
+  h2{
+    font-size: 3.3em
+  }
+ 	margin-bottom: 50px;
+ 	ul, ol {
+ 		padding-left: 18px;
+ 		li {
+ 			padding: 1em 0;
+ 			border-bottom: 1px solid #EAEAEA;
+ 		}
+ 	}
+}
+
+.form-inline {
+	margin-top: 15px;
+}
+.form-input {
+	width: 65% !important;
+	float: left;
+}
+.form-button {
+	float: left;
+	width: 30% !important;
+	margin-left: 5%;
+}
+.add-button {
+	margin-top: 25px;
+}
+.bigb{
+  padding: 0;
+  margin: 0 3% 0 3%;
+}
+.searchform{
+  max-height: 45px;
+  min-width:400px;
+  .pad{
+    padding-left: 7px;
+    padding-top: 2px;
+    position: absolute;
+    top: 2;
+    max-width: 360px;
+    display: inline;
+  }
+}
+.nav-wrapper{
+  ul{
+    li{
+      color: white;
+    }
+
+  }
+}
+.nav-wrapper{
+  html{
+	box-sizing: border-box;
+}
+*, *:after,*:before{
+	box-sizing: inherit;
+}
+a{
+	color: #333;
+	text-decoration: none;
+}
+html{
+  width: 100%;
+   height: 100%;
+}
+h1{
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+}
+}
+.tagbox{
+  @include box-shadow;
+  li{
+    h3,h5{
+      text-shadow: 2%;
+    font-weight: bold;
+  }
+  }
+  img{
+    background-repeat: norepeat;
+      -webkit-animation: myfirst 20s; /* Chrome, Safari, Opera */
+      animation: myfirst 2000;
+      animation-play-state: running;
+      -webkit-animation-play-state: running;
+
+  }
+  @-webkit-keyframes myfirst {
+      from {
+      background-position: bottom center;
+      background-size: cover;
+      }
+      to {
+        background-position: top center;
+        background-size: cover;
+      }
+  }
+}

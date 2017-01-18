@@ -1,0 +1,25 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="input-field">
+      <%= f.input :email, required: true, autofocus: true,class: "validate" %>
+    </div>
+    <div class="input-field">
+      <%= f.input :password, required: true,class: "validate" %>
+    </div>
+    <div class="input-field">
+      <%= f.input :password_confirmation, required: true,class: "validate" %>
+    </div>
+  </div>
+
+  <div class="form-actions waves-effect waves-red">
+    <%= f.button :submit, "Sign up",class: "btn  yellow darken-2" %>
+  </div>
+<% end %>
+<br>
+<div class="waves-effect waves-red btn yellow darken-2">
+<%= render "devise/shared/links" %>
+</div>

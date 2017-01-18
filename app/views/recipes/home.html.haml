@@ -1,0 +1,55 @@
+.tagbox.white{style:"padding-bottom:5px;border-radius:2%;"}
+  %div{:class => "'tagbox"}
+  .slider
+    %ul.slides
+      %li
+        =link_to tag_path("Breakfast") do
+          %img{:src => "https://i.ytimg.com/vi/OpxxQYbZsTs/maxresdefault.jpg"}/
+          .caption.left-align
+            %h3 Breakfast-n-Brunch
+            %h5.light.grey-text.text-lighten-3 We have hundreds of great "ways" to start your day!
+      %li
+        =link_to tag_path("Bakery") do
+          %img{:src => "http://eskipaper.com/images/bakery-wallpaper-hd-1.jpg"}/
+          .caption.left-align
+            %h3 Bakery
+            %h5.light.grey-text.text-lighten-3 Life is too short to say no to Cake!
+      %li
+        =link_to tag_path("Soup") do
+          %img{:src => "http://www.jacchaaurbaccha.com/wp-content/uploads/2016/08/tomato-soup-for-babies-kids.jpg"}/
+          .caption.left-align
+            %h3 Soups-n-Stews
+            %h5.light.grey-text.text-lighten-3 WORRIES go down better with soup!
+      %li
+        =link_to tag_path("Vegetarian") do
+          %img{:src => "http://www.tootimidandsqueamish.com/wp-content/uploads/2011/06/Channa-masala-dinner.jpg"}/
+          .caption.left-align
+            %h3 Veggie!
+            %h5.light.grey-text.text-lighten-3 Because its good to be green.
+      %li
+        =link_to tag_path("Non-Vegetarian") do
+          %img{:src => "http://i.ndtvimg.com/i/2015-09/punjab-grill-bangalore-625_625x350_51441266690.jpg"}/
+          .caption.left-align
+            %h3 Non-Veg.
+            %h5.light.grey-text.text-lighten-3  because Meat Eater is an old phrase for Bad Gardener. ;)
+      %li
+        =link_to tag_path("cream") do
+          %img{:src => "http://wallpaperrs.com/uploads/photography/desserts-wide-wallpaper-28241.jpg"}/
+          .caption.left-align
+            %h3 Desserts
+            %h5.light.grey-text.text-lighten-3 we have hundreds of top-rated dessert recipes to satisfy your taste buds.
+%br
+#recipes.transitions-enabled
+  - @recipe.each do |recipe|
+    .box.panel.panel-default.col-md-3.col-xs-5
+      .image_wrapper
+        =link_to recipe do
+          =image_tag recipe.image.url
+        .like{style:"background-color:white;color:#f44336;position:absolute;padding:3px;border-radius:6%;top:0;left:0;"}
+          %span.glyphicon.glyphicon-heart
+            =recipe.get_upvotes.size
+      .panel-body
+        %h2= link_to recipe.title,recipe
+        %p.user
+          Sumbitted by:
+          =recipe.user.email

@@ -1,0 +1,8 @@
+%h1 Edit recipe
+=image_tag @recipe.image.url(:medium)
+=render 'form'
+
+%br
+
+= link_to "Back", root_path, class: "btn btn-default"
+= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn waves-effect waves-light"

@@ -1,0 +1,62 @@
+%br
+
+.main_content{style: "margin-bottom:55px;"}
+	#recipe_top.row
+		.col-md-4
+			= image_tag @recipe.image.url(:medium), class: "recipe_image materialboxed","data-caption"=> @recipe.title,width: "100%"
+			=link_to like_recipe_path(@recipe),method: :put,class: "btn waves-effect waves-red white",style:"color:#f44336;position:absolute;bottom:0;left:0;" do
+				%span.glyphicon.glyphicon-heart
+					=@recipe.get_upvotes.size
+		.col-md-8
+			#recipe_info
+				%h1= @recipe.title
+				%p.description
+					= @recipe.description
+				.chips
+					%p
+						Submitted by
+						=@recipe.user.email
+				%p
+					Tags:
+					= raw @recipe.tag_list.map { |t| link_to t,tag_path(t)}.join(', ')
+				- if current_user
+					-if current_user.favorites.find_by_id(@recipe.id)!=nil
+						= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), method: :put
+					-else
+						= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite") , method: :put
+
+	.row
+		.col-md-6
+			#ingredients
+				%h2 Ingredients
+				%ul
+					- @recipe.ingredients.each do |ingredient|
+						%li= ingredient.name
+
+		.col-md-6
+			#directions
+				%h2 Directions
+				%ul
+					- @recipe.directions.each do |direction|
+						%li= direction.step
+	.row
+		.col-md-12
+			- if current_user==@recipe.user
+				= link_to "Edit", edit_recipe_path, class: "btn btn-default"
+
+	.comment_box
+		%h3.comments_title
+			= @recipe.comments.count
+			Comments
+		#comments
+			= render :partial => @recipe.comments
+		-if current_user!=nil
+			= simple_form_for [@recipe, Comment.new]  do |f|
+				.field
+					= f.text_area :body, class: "form-control"
+				%br/
+				= f.submit "Add Comment", class: "btn btn-primary"
+-if current_user==nil
+	.plslogin{style:"background-color:white;border-radius:15%;padding:10px;margin-bottom:20px"}
+		%p{style:"font-size:20px;text-align:center;"}
+			Comment? Please Login to post a comment! (^_^)
