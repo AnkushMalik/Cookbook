@@ -1,7 +1,7 @@
 %br
 #recipes.transitions-enabled
   -if @recipe.length!=nil
-  
+
     - @recipe.reverse.each do |recipe|
       .box.panel.panel-default.col-md-3.col-xs-5
         .image_wrapper
@@ -15,8 +15,8 @@
           %p.user
             Sumbitted by
             =recipe.user.email
-  -else
-    %p
-      No results found regarding this :|
-    %p
-      Add New Recipes and Help others :D
+    .end
+      %p
+        you have reached the end :|
+      %p
+        Add share New Recipe and help everyone :D

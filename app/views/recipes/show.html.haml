@@ -2,8 +2,8 @@
 
 .main_content{style: "margin-bottom:55px;"}
 	#recipe_top.row
-		.col-md-4
-			= image_tag @recipe.image.url(:medium), class: "recipe_image materialboxed","data-caption"=> @recipe.title,width: "100%"
+		.col-md-4{style:"padding:0;box-shadow: 0 35px 35px 0 rgba(0, 0, 0, 0.33);"}
+			= image_tag @recipe.image.url(:medium), class: "recipe_image materialboxed","data-caption"=> @recipe.title,width: "100%",style:"border-radius:2.5%;"
 			=link_to like_recipe_path(@recipe),method: :put,class: "btn waves-effect waves-red white",style:"color:#f44336;position:absolute;bottom:0;left:0;" do
 				%span.glyphicon.glyphicon-heart
 					=@recipe.get_upvotes.size
@@ -31,14 +31,19 @@
 				%h2 Ingredients
 				%ul
 					- @recipe.ingredients.each do |ingredient|
-						%li= ingredient.name
-
+						%li
+							%input.filled-in{:type => "checkbox",:id => ingredient.name}/
+							%label{:for => ingredient.name}
+								=ingredient.name
 		.col-md-6
 			#directions
 				%h2 Directions
 				%ul
 					- @recipe.directions.each do |direction|
-						%li= direction.step
+						%li
+							%input.filled-in{:type => "checkbox",:id => direction.step}/
+							%label{:for => direction.step}
+								=direction.step
 	.row
 		.col-md-12
 			- if current_user==@recipe.user
@@ -48,7 +53,7 @@
 		%h3.comments_title
 			= @recipe.comments.count
 			Comments
-		#comments
+		#comment
 			= render :partial => @recipe.comments
 		-if current_user!=nil
 			= simple_form_for [@recipe, Comment.new]  do |f|

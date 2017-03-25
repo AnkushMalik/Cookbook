@@ -16,7 +16,6 @@
 //= require materialize-sprockets
 //= require masonry/jquery.masonry
 //= require cocoon
-//= require turbolinks
 //= require_tree .
 
 $('.button-collapse').sideNav({

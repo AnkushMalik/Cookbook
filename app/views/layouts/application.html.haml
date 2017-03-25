@@ -2,8 +2,8 @@
 %html
 %head
   %title CookBook
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = stylesheet_link_tag    'application', media: 'all'
+  = javascript_include_tag 'application'
   %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %link{:href => "https://fonts.googleapis.com/css?family=Fredericka+the+Great", :rel => "stylesheet"}/
   = csrf_meta_tags
@@ -12,8 +12,8 @@
   .navbar-fixed
     %nav.yellow
       .nav-wrapper.yellow.accent-4
-        = link_to "FooDirection", root_path,class: "brand-logo waves-effect waves-light",style: "font-family: 'Fredericka the Great',cursive;font-weight:550;font-size:40px;color:white;margin:10px;"
-        %a.button-collapse{"data-activates" => "mobile-demo", :href => "",style: "color:white"}
+        = link_to "CookBook", root_path,class: "brand-logo waves-effect waves-light",style: "font-family: 'Fredericka the Great',cursive;font-weight:550;font-size:40px;color:white;margin:10px;"
+        %a.button-collapse{"data-activates" => "mobile-demo", :href => "#",style: "color:white"}
           %i.material-icons.btn.btn-default{style:"font-weight:500;font-size:40px;"}
             menu
         %ul.right.hide-on-med-and-down
@@ -31,8 +31,8 @@
               = form_tag recipes_path, :method => 'get' do
                 %i.material-icons{style: "min-width: 40px;display: inline;"} search
                 = text_field_tag :search, params[:search],class:"pad",placeholder:"Search"
-            %li= link_to "Sign Up",new_user_registration_path,class: "waves-effect waves-light"
-            %li= link_to "Sign In",new_user_session_path,class: "waves-effect waves-light"
+            %li= link_to "Sign Up",new_user_registration_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
+            %li= link_to "Sign In",new_user_session_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
         %ul#mobile-demo.side-nav.yellow.lighten-1
           -if user_signed_in?
             %li.input-field.searchform{style:""}

@@ -21,7 +21,7 @@ gem 'devise', '~> 3.4.0'
 gem 'haml', '~> 4.0.5'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do

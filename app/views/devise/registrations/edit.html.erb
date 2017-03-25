@@ -1,3 +1,4 @@
+<div class="col-md-6 col-md-offset-3 bbox" style="margin-top:20px;">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -24,3 +25,4 @@
 
 <p>Unhappy?</p>
 <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "btn btn-primary waves-dark waves-effect red" %>
+</div>

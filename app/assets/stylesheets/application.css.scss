@@ -77,9 +77,9 @@
  	  }
  	}
  }
- #recipe_info, #ingredients, #directions ,#cmdata{
+ #recipe_info, #ingredients, #directions ,#cmdata,.comment_box,#imagebox,.bbox{
 	background: white;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
 	min-height: 270px;
 	border-radius: 5px;
 	padding: 2em 8%;
