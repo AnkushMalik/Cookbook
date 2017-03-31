@@ -1,4 +1,5 @@
-<div class="col-md-6 col-md-offset-3 bbox" style="margin-top:25px;">
+<div class="row">
+<div class="col m6 offset-m3 bbox" style="margin-top:25px;padding:35px;">
   <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -21,8 +22,9 @@
     </div>
   <% end %>
   <br>
-  Already Have an Account?   
+  Already Have an Account?
   <div class="waves-effect waves-red btn yellow darken-2">
   <%= render "devise/shared/links" %>
   </div>
+</div>
 </div>

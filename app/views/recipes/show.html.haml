@@ -2,12 +2,13 @@
 
 .main_content{style: "margin-bottom:55px;"}
 	#recipe_top.row
-		.col-md-4{style:"padding:0;box-shadow: 0 35px 35px 0 rgba(0, 0, 0, 0.33);"}
+		.col.m4{style:"padding:0;box-shadow: 0 35px 35px 0 rgba(0, 0, 0, 0.33);"}
 			= image_tag @recipe.image.url(:medium), class: "recipe_image materialboxed","data-caption"=> @recipe.title,width: "100%",style:"border-radius:2.5%;"
 			=link_to like_recipe_path(@recipe),method: :put,class: "btn waves-effect waves-red white",style:"color:#f44336;position:absolute;bottom:0;left:0;" do
-				%span.glyphicon.glyphicon-heart
+				%span
+					%i.fa.fa-heart-o{"aria-hidden" => "true"}
 					=@recipe.get_upvotes.size
-		.col-md-8
+		.col.m8
 			#recipe_info
 				%h1= @recipe.title
 				%p.description
@@ -26,7 +27,7 @@
 						= link_to "favorite",   favorite_recipe_path(@recipe, type: "favorite") , method: :put
 
 	.row
-		.col-md-6
+		.col.m6
 			#ingredients
 				%h2 Ingredients
 				%ul
@@ -35,7 +36,7 @@
 							%input.filled-in{:type => "checkbox",:id => ingredient.name}/
 							%label{:for => ingredient.name}
 								=ingredient.name
-		.col-md-6
+		.col.m6
 			#directions
 				%h2 Directions
 				%ul
@@ -45,7 +46,7 @@
 							%label{:for => direction.step}
 								=direction.step
 	.row
-		.col-md-12
+		.col.m12
 			- if current_user==@recipe.user
 				= link_to "Edit", edit_recipe_path, class: "btn btn-default"
 

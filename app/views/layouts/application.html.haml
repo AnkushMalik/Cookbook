@@ -9,48 +9,38 @@
   = csrf_meta_tags
 
 %body
-  .navbar-fixed
-    %nav.yellow
-      .nav-wrapper.yellow.accent-4
-        = link_to "CookBook", root_path,class: "brand-logo waves-effect waves-light",style: "font-family: 'Fredericka the Great',cursive;font-weight:550;font-size:40px;color:white;margin:10px;"
-        %a.button-collapse{"data-activates" => "mobile-demo", :href => "#",style: "color:white"}
-          %i.material-icons.btn.btn-default{style:"font-weight:500;font-size:40px;"}
-            menu
-        %ul.right.hide-on-med-and-down
-          -if user_signed_in?
-            %li.input-field.searchform{style: "margin-top:4px;"}
-              = form_tag recipes_path, :method => 'get' do
-                %i.material-icons{style: "min-width: 40px;display: inline;"} search
-                = text_field_tag :search, params[:search],class:"pad",placeholder:"Search"
-            %li= link_to "New Recipe",new_recipe_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
-            %li= link_to "Saved Recipes",fav_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
-            %li= link_to "Account",edit_user_registration_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
-            %li= link_to "Sign Out",destroy_user_session_path,method: :delete,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
-          -else
-            %li.input-field.searchform{style:""}
-              = form_tag recipes_path, :method => 'get' do
-                %i.material-icons{style: "min-width: 40px;display: inline;"} search
-                = text_field_tag :search, params[:search],class:"pad",placeholder:"Search"
-            %li= link_to "Sign Up",new_user_registration_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
-            %li= link_to "Sign In",new_user_session_path,class: "waves-effect waves-light",style:"color:white;font-size:17px;"
-        %ul#mobile-demo.side-nav.yellow.lighten-1
-          -if user_signed_in?
-            %li.input-field.searchform{style:""}
-              = form_tag recipes_path, :method => 'get' do
-                %i.material-icons{style: "min-width: 40px;display: inline;"} search
-                = text_field_tag :search, params[:search],class:"pad",placeholder:"Search"
-            %li= link_to "New Recipe",new_recipe_path,class: "waves-effect waves-yellow"
-            %li= link_to "Saved Recipes",fav_path,class: "waves-effect waves-yellow"
-            %li= link_to "Account",edit_user_registration_path,class: "waves-effect waves-yellow"
-            %li= link_to "Sign Out",destroy_user_session_path,method: :delete,class: "waves-effect waves-yellow"
-          -else
-            %li.input-field.searchform{style:""}
-              = form_tag recipes_path, :method => 'get' do
-                %i.material-icons{style: "min-width: 40px;display: inline;"} search
-                = text_field_tag :search, params[:search],class:"pad",placeholder:"Search"
-            %li= link_to "Sign Up",new_user_registration_path,class: "waves-effect waves-light"
-            %li= link_to "Sign In",new_user_session_path,class: "waves-effect waves-light"
-  .col-l10.bigb
+  %nav{style: "height:70px;background-color:#ffb441"}
+    .logo
+      = link_to "CookBook", root_path,class: "brand-logo waves-effect waves-light",style: "font-family: 'Fredericka the Great',cursive;font-weight:550;font-size:40px;color:white;margin:10px;"
+    %ul.cd-primary-nav
+      -if user_signed_in?
+        %li.waves-effect.waves-light
+          =form_tag recipes_path, :method => 'get' do
+            %i.material-icons.col.s1{style: "font-size:40px;display: inline;padding-top:15px;"} search
+            .input-field.col.s11{style: "height:67px;"}
+              = text_field_tag :search, params[:search],placeholder:"Search",style:"padding:0;"
+        %li.waves-effect.waves-light= link_to "New Recipe",new_recipe_path,style:"color:white;font-size:17px;"
+        %li.waves-effect.waves-light= link_to "Saved Recipes",fav_path,style:"color:white;font-size:17px;"
+        %li.waves-effect.waves-light= link_to "Account",edit_user_registration_path,style:"color:white;font-size:17px;"
+        %li.waves-effect.waves-light= link_to "Sign Out",destroy_user_session_path,method: :delete,style:"color:white;font-size:17px;"
+      -else
+        %li.waves-effect.waves-light
+          =form_tag recipes_path, :method => 'get',style:"display:flex" do
+            %i.material-icons.col.s1{style: "font-size:40px;display: inline;padding-top:15px;"} search
+            .input-field.col.s10{style: "height:67px;"}
+              = text_field_tag :search, params[:search],placeholder:"Search",style:"padding:0;padding-left:15px"
+        %li.waves-effect.waves-light= link_to "Sign Up",new_user_registration_path,style:"color:white;font-size:17px;"
+        %li.waves-effect.waves-light= link_to "Sign In",new_user_session_path,style:"color:white;font-size:17px;"
+  .cd-overlay-nav
+    %span
+    / cd-overlay-nav
+  .cd-overlay-content
+    %span
+    / cd-overlay-content
+  %a.cd-nav-trigger{:href => "#0"}
+    Menu
+    %span.cd-icon
+  .col.l10.bigb
     - if notice
       :javascript
         Materialize.toast('#{notice}', 2000)

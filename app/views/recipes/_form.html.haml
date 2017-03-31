@@ -12,7 +12,7 @@
 				= f.input :title, input_html: { class: 'form-control validate' }
 			%br
 			.input-field
-				= f.input :description, input_html: { class: 'form-control' }
+				= f.input :description, input_html: { class: 'form-control validate' }
 			%br
 			= f.input :image
 			%br
@@ -22,14 +22,14 @@
 				= f.text_field :tag_list
 
 		.row
-			.col-md-6.bit
+			.col.m6.bit
 				%h3 Ingredients
 				#ingredients
 					= f.simple_fields_for :ingredients do |ingredient|
 						= render 'ingredient_fields', f: ingredient
 					.links
 						= link_to_add_association 'Add Ingredient', f, :ingredients, class: "btn btn-default add-button"
-			.col-md-6
+			.col.m6
 				%h3 Directions
 				#directions
 					= f.simple_fields_for :directions do |direction|
