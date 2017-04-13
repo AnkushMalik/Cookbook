@@ -1,0 +1,63 @@
+.probox{
+ background: white;
+ box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
+ border-radius: 5px;
+ height: inherit;
+ padding: 2em 8%;
+
+}
+.dp{
+  img{
+    max-height: 222.5px;
+  }
+}
+#prrecipes {
+  padding: 10px;
+  margin: 30px ;
+  width: 100%;
+  .box {
+    max-width: 48%;
+    @media screen and (min-width: 800px){
+    max-width: 240px;
+   }
+
+   padding: 0;
+   margin-left: 2px;
+   margin-right: 2px;
+   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+   border-radius: 0 0 7% 7%;
+   text-align: center;
+   .image_wrapper {
+     max-width: 100%;
+     overflow: hidden;
+   }
+   img {
+     width: 100%;
+     height: auto;
+     -webkit-transition: all .3s ease-out;
+     -moz-transition: all .3s ease-out;
+     -o-transition: all .3s ease-out;
+     transition: all .3s ease-out;
+     &:hover {
+     transform: scale(1.075);
+   }
+   }
+   h2 {
+     font-size: 20px;
+     margin: 0;
+     a {
+       color: teal;
+     }
+   }
+   .panel-body{
+     padding-top: 0;
+     padding-bottom: 0;
+   }
+   .user {
+     font-size: 12px;
+     border-top: 1px solid #EAEAEA;
+     padding: 15px;
+     margin: 0;
+   }
+ }
+}

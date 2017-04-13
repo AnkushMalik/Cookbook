@@ -54,4 +54,4 @@
             %h2= link_to recipe.title,recipe
             %p.user
               Submitted by:
-              =recipe.user.email
+              = link_to recipe.user.email, user_path(id: recipe.user.id)

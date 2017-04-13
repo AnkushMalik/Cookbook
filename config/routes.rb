@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
  resources :comments
  devise_for :users
+ resources :users, :only => [:show]
+ get 'users/:id' => 'users#show'
  resources :recipes do
    member do
      put "like",to: "recipes#upvote"

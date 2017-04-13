@@ -9,7 +9,7 @@
   = csrf_meta_tags
 
 %body
-  %nav{style: "height:70px;background-color:#ffb441"}
+  %nav{style: "height:70px;background-color:#ffb441;z-index:4;position:fixed;"}
     .logo
       = link_to "CookBook", root_path,class: "brand-logo waves-effect waves-light",style: "font-family: 'Fredericka the Great',cursive;font-weight:550;font-size:40px;color:white;margin:10px;"
     %ul.cd-primary-nav
@@ -40,11 +40,12 @@
   %a.cd-nav-trigger{:href => "#0"}
     Menu
     %span.cd-icon
-  .col.l10.bigb
+  .col.bigb{style:"height:90%;"}
     - if notice
       :javascript
         Materialize.toast('#{notice}', 2000)
     - if alert
       :javascript
         Materialize.toast('#{alert}', 2000)
+    .bpad{style:"padding-top:60px;"}
     = yield

@@ -38,6 +38,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (4.0.0)
       activerecord (>= 4.0)
+    acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
     arel (6.0.4)
     bcrypt (3.1.11)
@@ -196,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 4.0)
+  acts_as_follower
   acts_as_votable (~> 0.10.0)
   bootstrap-sass (~> 3.2.0.2)
   byebug

@@ -1,0 +1,41 @@
+.qqqq{style:"padding:30px;"}
+.probox{style:"padding-left:40px;padding-right:40px;"}
+  .dispic.col-md-3.col-sm-12{style:"border-right:solid 1px lightgrey;padding-left:0px;"}
+    .content{style:"margin:30px;"}
+      .dp.col-sm-4.col-md-12{style:"width: 220px;padding-left:0px;height: 220px;border-radius: 50%;overflow:hidden;"}
+        -if @user.image
+          =image_tag @user.image.url(:medium)
+        -else
+          =image_tag(("missing.png"),class: "defdp")
+      .ct.col-sm-8.col-md-12
+        .section
+          %h5 Email
+          %p
+            =@user.email
+        .divider
+        -if current_user!=@user
+          .section
+            %h5{style:"align-content:left;"} Stay In Touch
+            %p
+              follow button
+  .index.col-md-9.col-sm-12
+    .qqq{style:"padding:1em"}
+    .section
+      %h5{style:"display:inline"} "Username" has shared
+      %h5{style:"display:inline"}
+        =@user.recipes.count
+      %h5{style:"display:inline"} recipes till now
+    .divider
+    .row{style:"overflow-y:auto;max-height:410px; overflow-x: hidden;"}
+      #prrecipes.transitions-enabled
+        - @user.recipes.reverse.each do |recipe|
+          .box.panel.panel-default.col-md-6.col-sm-4
+            .image_wrapper
+              =link_to recipe do
+                =image_tag recipe.image.url
+              .like{style:"background-color:white;color:#f44336;position:absolute;padding:3px;border-radius:6%;top:0;left:0;"}
+                %span
+                  %i.fa.fa-heart{"aria-hidden" => "true"}
+                  =recipe.get_upvotes.size
+            .panel-body
+              %h2= link_to recipe.title,recipe

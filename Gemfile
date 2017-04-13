@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 gem 'sqlite3'
+gem 'acts_as_follower'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sunspot_solr'
